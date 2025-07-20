@@ -2,27 +2,138 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css" />
     <title>Dice Game</title>
 </head>
 <body>
-    <h1>Dice Game</h1>
-    <h2>Rules:</h2>
-    <ul>
-        <li>When you click the Roll Dice! button, you will roll up to 10 dice, one at a time. </li>
-        <li>If you roll a 1, game stops and all further rolls are forfeited.</li>
-        <li>If you roll 2, 3, or 4, you win nothing but you get to roll again.</li>
-        <li>If you roll a 5, you win 5 gold coins and you get to roll again.</li>
-        <li>If you roll a 6, you win 6 gold coins and you get to roll again.</li>
-    </ul>
-    <button type="button" onclick="fetchCard()">Get Card!</button>
-    <script>
-        async function fetchCard(){
-        const card = await fetch(
-            "https://api.pokemontcg.io/v2/cards"
-            ).then((response) => response.text());
-            console.log(card);
-        }
-
-    </script>
+    <div class="screen-overlay"></div>
+    <div class="scanlines"></div>
+    
+    <div class="container">
+        <header class="header">
+            <div class="header-content">
+                <div class="logo">POKÉDEX</div>
+                <div class="search-container">
+                    <input type="text" class="search-input" placeholder="SEARCH CARDS...">
+                    <button class="search-btn">FIND</button>
+                </div>
+            </div>
+        </header>
+        
+        <div class="main-title">
+            <h1>POKEMON TRADING CARD DATABASE</h1>
+            <p>EXPLORE THE COMPLETE COLLECTION OF POKEMON CARDS</p>
+        </div>
+        
+        <div class="filter-section">
+            <div class="filter-title">FILTER BY TYPE:</div>
+            <div class="filter-buttons">
+                <button class="filter-btn active">ALL</button>
+                <button class="filter-btn">POKEMON</button>
+                <button class="filter-btn">TRAINER</button>
+                <button class="filter-btn">ENERGY</button>
+            </div>
+        </div>
+        
+        <div class="info-panel">
+            <h2>SYSTEM STATUS: ONLINE</h2>
+            <p>DATABASE CONNECTION ESTABLISHED. READY TO BROWSE POKEMON CARDS.</p>
+        </div>
+        
+        <div class="card-grid">
+            <!-- Sample cards -->
+            <div class="pokemon-card">
+                <div class="card-image">⚡</div>
+                <div class="card-name">PIKACHU</div>
+                <div class="card-type">ELECTRIC</div>
+                <div class="card-stats">
+                    <div class="stat">
+                        <span class="stat-value">60</span>
+                        <span class="stat-label">HP</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-value">90</span>
+                        <span class="stat-label">ATK</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-value">40</span>
+                        <span class="stat-label">DEF</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="pokemon-card">
+                <div class="card-image">🔥</div>
+                <div class="card-name">CHARIZARD</div>
+                <div class="card-type">FIRE</div>
+                <div class="card-stats">
+                    <div class="stat">
+                        <span class="stat-value">120</span>
+                        <span class="stat-label">HP</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-value">130</span>
+                        <span class="stat-label">ATK</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-value">80</span>
+                        <span class="stat-label">DEF</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="pokemon-card">
+                <div class="card-image">🌊</div>
+                <div class="card-name">BLASTOISE</div>
+                <div class="card-type">WATER</div>
+                <div class="card-stats">
+                    <div class="stat">
+                        <span class="stat-value">110</span>
+                        <span class="stat-label">HP</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-value">120</span>
+                        <span class="stat-label">ATK</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-value">100</span>
+                        <span class="stat-label">DEF</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="pokemon-card">
+                <div class="card-image">🌿</div>
+                <div class="card-name">VENUSAUR</div>
+                <div class="card-type">GRASS</div>
+                <div class="card-stats">
+                    <div class="stat">
+                        <span class="stat-value">100</span>
+                        <span class="stat-label">HP</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-value">100</span>
+                        <span class="stat-label">ATK</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-value">120</span>
+                        <span class="stat-label">DEF</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="pokemon-card">
+                <div class="card-image">👨‍🔬</div>
+                <div class="card-name">PROFESSOR OAK</div>
+                <div class="card-type">TRAINER</div>
+            </div>
+            
+            <div class="pokemon-card">
+                <div class="card-image">🔋</div>
+                <div class="card-name">FIRE ENERGY</div>
+                <div class="card-type">BASIC</div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
