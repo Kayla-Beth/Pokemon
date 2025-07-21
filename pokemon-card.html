@@ -38,6 +38,9 @@
         <div class="info-panel">
             <h2>SYSTEM STATUS: ONLINE</h2>
             <p>DATABASE CONNECTION ESTABLISHED. READY TO BROWSE POKEMON CARDS.</p>
+            <button id="loadCardBtn" onclick="getRandomPokemonCard()">Get Random Pokémon Card</button>
+            <div id="cardContainer"></div>
+            <!-- TODO: figure out why it's calling getRandomPokemonCard at page load -->
         </div>
         
         <div class="card-grid">
@@ -136,4 +139,5 @@
         </div>
     </div>
 </body>
+<script src="pokemon-card.js"></script>
 </html>

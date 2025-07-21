@@ -331,6 +331,13 @@
             line-height: 1.4;
         }
         
+        .button {
+            background: #d0a9f5;
+            color: #2d1b69;
+            transform: translate(2px, 2px);
+            box-shadow: none;
+        }
+        
         /* Loading state */
         .loading {
             text-align: center;
