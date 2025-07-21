@@ -116,6 +116,11 @@
             box-shadow: inset 2px 2px 0px #f4f3ee, 0 0 0 2px #7209b7;
         }
         
+        .button-wrapper {
+             text-align: center;  /* centers the button horizontally */
+            margin-top: 1rem;    /* optional spacing */
+        }
+
         .search-btn {
             background: #457b9d;
             border: 3px solid #2d1b69;
