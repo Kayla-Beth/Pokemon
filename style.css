@@ -1,4 +1,4 @@
-    @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Creepster&display=swap');
+   @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Creepster&display=swap');
         
         * {
             margin: 0;
@@ -193,6 +193,11 @@
             display: flex;
             gap: 10px;
             flex-wrap: wrap;
+        }
+
+        .button-wrapper {
+             text-align: center;  /* centers the button horizontally */
+            margin-top: 1rem;    /* optional spacing */
         }
         
         .filter-btn {
