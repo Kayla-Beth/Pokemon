@@ -332,6 +332,7 @@
             color: #fcf6bd;
             font-size: 12px;
             margin-bottom: 10px;
+            margin-top: 10px;
             text-shadow: 1px 1px 0px #2d1b69;
         }
         
@@ -347,6 +348,22 @@
             transform: translate(2px, 2px);
             box-shadow: none;
         }
+
+        
+  #lottieLoader {
+    width: 500px;          /* tweak as you like */
+    height: 300px;
+    margin: 16px auto;     /* center horizontally */
+    display: none;         /* hidden until loading */
+  }
+  #cardContainer img {
+    max-width: 300px;
+    height: auto;
+    display: block;
+    margin: 12px auto;
+  }
+
+
         
         /* Loading state */
         .loading {
