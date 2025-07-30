@@ -41,6 +41,14 @@
             <div class="button-wrapper">
             <button class ="filter-btn active" id="loadCardBtn" onclick="getRandomPokemonCard()">Get Random Pokémon Card</button>
             <div id="cardContainer"></div>
+
+            <!-- Lottie loader container (initially hidden) -->
+<div id="lottieLoader" aria-hidden="true"></div>
+
+<!-- Lottie-web (CDN) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
             </div>
             <!-- TODO: figure out why it's calling getRandomPokemonCard at page load -->
         </div>
@@ -140,6 +148,8 @@
             </div>
         </div>
     </div>
+    <!-- Your app JS (deferred so DOM is ready) -->
+<script src="pokemon-card.js" defer></script>
 </body>
 <script src="pokemon-card.js"></script>
 </html>
