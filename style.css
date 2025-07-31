@@ -34,6 +34,42 @@
             z-index: 1000;
         }
         
+
+        /* Make sure header can show the runner */
+.header {
+  position: relative;
+  overflow: hidden; /* keeps the runner inside the header bounds */
+}
+
+/* The track next to the logo */
+.header-runner {
+  position: relative;
+  width: 100%;
+  flex: 1 1 auto;       /* if header-content uses flex */
+  height: 56px;         /* runner height */
+}
+
+/* The actual lottie */
+#bulbaLottie {
+  position: absolute;
+  width: 100px;          /* lottie display size */
+  height: 100px;
+  left: -96px;          /* start off-screen left */
+  top: -15px;            /* tweak to align with your header */
+  pointer-events: none; /* don't block clicks */
+  will-change: transform;
+}
+
+/* The run animation */
+@keyframes bulba-run-across {
+  from { transform: translateX(-120px); }
+  to   { transform: translateX(calc(100vw + 120px)); }
+}
+
+/* Only animate when JS adds this class (respects reduced motion) */
+#bulbaLottie.is-running {
+  animation: bulba-run-across 8s linear infinite;
+}
         /* Scanlines */
         .scanlines {
             position: fixed;
@@ -84,6 +120,7 @@
             align-items: center;
             flex-wrap: wrap;
             gap: 15px;
+            justify-content: center;
         }
         
         .logo {
@@ -98,6 +135,9 @@
             display: flex;
             align-items: center;
             gap: 10px;
+            margin-top: 10px;
+            align-items: center;
+            justify-content: center;
         }
         
         .search-input {
@@ -363,6 +403,135 @@
     margin: 12px auto;
   }
 
+:root {
+  --panel-bg: #0b0f1a;
+  --panel-border: #22324a;
+  --panel-glow: #3ad1ff55;
+  --text-primary: #e8f1ff;
+  --text-dim: #9bb3d1;
+  --chip-bg: #152033;
+  --chip-text: #cfe6ff;
+  --accent: #3ad1ff;
+}
+
+.result-card {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 20px;
+  align-items: start;
+  padding: 20px;
+  color: var(--text-primary);
+  margin-top: 20px;
+}
+
+.result-card.empty,
+.result-card.error {
+  display: block;
+  text-align: center;
+  padding: 32px;
+  color: var(--text-dim);
+}
+
+.result-card img.card-art {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 10px 24px rgba(0,0,0,.35);
+  background: #060a12;
+}
+
+.card-meta {
+  display: grid;
+  gap: 14px;
+}
+
+.card-title {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+}
+
+.card-title h2 {
+  font-size: 1.6rem;
+  margin: 0;
+  letter-spacing: .5px;
+}
+
+.subtle {
+  color: var(--text-dim);
+  font-size: .95rem;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.chip {
+  background: var(--chip-bg);
+  color: var(--chip-text);
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: .85rem;
+  border: 1px solid #22324a;
+}
+
+.type-chip { font-weight: 600; }
+
+/* Optional: color by type */
+.type-fire    { background: #2a1111; color:#ffb3b3; border-color:#612020; }
+.type-water   { background: #101b2a; color:#b3d9ff; border-color:#1d3b61; }
+.type-grass   { background: #122014; color:#b8f1c9; border-color:#204f2a; }
+.type-electric{ background: #251f12; color:#ffe9a6; border-color:#5b4b1e; }
+.type-psychic { background: #201224; color:#f0b3ff; border-color:#462258; }
+.type-fighting{ background: #241814; color:#ffc9b0; border-color:#5a321f; }
+.type-dark    { background: #0e0f12; color:#c6d0e3; border-color:#232733; }
+.type-metal   { background: #14181f; color:#d7e3f7; border-color:#2a3446; }
+.type-dragon  { background: #121721; color:#c7d9ff; border-color:#283451; }
+.type-fairy   { background: #241621; color:#ffcfe9; border-color:#4f2a49; }
+
+/* Info grid */
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px 16px;
+  margin-top: 6px;
+}
+
+.info-item {
+  display: flex;
+  gap: 8px;
+  align-items: baseline;
+}
+
+.info-label {
+  color: var(--text-dim);
+  font-size: .85rem;
+  min-width: 84px;
+}
+
+.card-actions {
+  margin-top: 8px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--accent);
+  border: 1px solid var(--panel-border);
+  border-radius: 10px;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+@media (max-width: 800px) {
+  .result-card {
+    grid-template-columns: 1fr;
+  }
+}
 
         
         /* Loading state */

@@ -11,13 +11,15 @@
     
     <div class="container">
         <header class="header">
-            <div class="header-content">
-                <div class="logo">POKÉDEX</div>
-                <div class="search-container">
-                    <input type="text" class="search-input" placeholder="SEARCH CARDS...">
-                    <button class="search-btn">FIND</button>
-                </div>
-            </div>
+  <div class="header-content">
+    <div class="logo">POKÉDEX</div>
+
+    <!-- Bulbasaur runner -->
+    <div class="header-runner">
+      <div id="bulbaLottie" aria-hidden="true"></div>
+    </div>
+
+
         </header>
         
         <div class="main-title">
@@ -38,20 +40,25 @@
         <div class="info-panel">
             <h2>SYSTEM STATUS: ONLINE</h2>
             <p>DATABASE CONNECTION ESTABLISHED. READY TO BROWSE POKEMON CARDS.</p>
-            <div class="button-wrapper">
-            <button class ="filter-btn active" id="loadCardBtn" onclick="getRandomPokemonCard()">Get Random Pokémon Card</button>
-            <div id="cardContainer"></div>
+<!-- The SINGLE result area used by BOTH flows -->
+<div class="search-container">
+  <input type="text" id="searchInput" class="search-input" placeholder="SEARCH CARDS...">
+  <button id="searchBtn" class="search-btn">FIND</button>
+  <!-- Remove inline onclick; JS wires it up. Commenting out get random card cause I keep getitng Gateway Timeouts from the API.
+  <button class="filter-btn active" id="loadCardBtn">Get Random Pokémon Card</button> -->
+</div>
 
-            <!-- Lottie loader container (initially hidden) -->
-<div id="lottieLoader" aria-hidden="true"></div>
+            <!-- Keep just ONE loader -->
+<div id="lottieLoader" aria-hidden="true" style="display:none;"></div>
+
+
+
+<section id="searchResult" class="result-card"></section>
+
 
 <!-- Lottie-web (CDN) -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-
-            </div>
-            <!-- TODO: figure out why it's calling getRandomPokemonCard at page load -->
-        </div>
         
         <div class="card-grid">
             <!-- Sample cards -->
@@ -77,7 +84,7 @@
             
             <div class="pokemon-card">
                 <div class="card-image">🔥</div>
-                <div class="card-name">CHARIZARD</div>
+                <div class="card-name">CHARMANDER</div>
                 <div class="card-type">FIRE</div>
                 <div class="card-stats">
                     <div class="stat">
@@ -148,8 +155,6 @@
             </div>
         </div>
     </div>
-    <!-- Your app JS (deferred so DOM is ready) -->
-<script src="pokemon-card.js" defer></script>
 </body>
 <script src="pokemon-card.js"></script>
 </html>
